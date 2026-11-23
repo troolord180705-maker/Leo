@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#d3122b">
+<title>Natal Coca-Cola — Um Natal Cheio de Presentes</title>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#e61d2b;--deep:#6d0010;--gold:#fff;--green:#0f3d2a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--deep);color:#fff;font-family:Montserrat,Arial,sans-serif}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px max(18px,env(safe-area-inset-right)) 10px max(18px,env(safe-area-inset-left));background:linear-gradient(90deg,#a90018 0,#d3122b 50%,#a90018 100%);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.45);box-shadow:0 8px 24px rgba(70,0,10,.18)}
+.header-detail{display:flex;align-items:center;gap:8px;min-width:150px;font-family:Montserrat,Arial,sans-serif;font-size:9px;font-weight:800;letter-spacing:.14em;color:#fff;white-space:nowrap}
+.header-detail.right{justify-content:flex-end}
+.header-detail i{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff}
+.logo{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:baseline;gap:.12em;font-family:Lobster,cursive;font-size:29px;color:#fff;text-decoration:none;white-space:nowrap}
+.logo span{color:#d3122b;background:#fff;border-radius:999px;padding:2px 10px 3px;line-height:1;box-shadow:0 3px 12px rgba(109,0,16,.25)}
+.logo b{color:#fff;font-weight:400;font-size:.82em;text-shadow:0 2px 4px rgba(109,0,16,.5)}
+.brand{font-family:Lobster,cursive;font-weight:400}
+.brand-seal{position:absolute;right:18px;top:70px;z-index:4;width:112px;height:112px;border:3px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;background:#d3122b;box-shadow:0 8px 25px rgba(109,0,16,.35);transform:rotate(7deg);font-family:Lobster,cursive;font-size:18px;line-height:.95}
+.brand-seal small{display:block;font-family:Montserrat,Arial,sans-serif;font-size:9px;letter-spacing:.16em;margin-bottom:5px}
+.coca-bottle{position:absolute;z-index:3;left:28px;bottom:70px;width:62px;height:180px;transform:rotate(-8deg);filter:drop-shadow(0 10px 10px rgba(109,0,16,.35))}
+.coca-bottle .bottle-glass{fill:#7a0012;stroke:#fff;stroke-width:3}
+.coca-bottle .bottle-label{fill:#fff}
+.bottle-script{font-family:Lobster,cursive;font-size:14px;fill:#d3122b}
+.hero-lights{position:absolute;z-index:6;left:-2%;right:-2%;top:34px;height:46px;pointer-events:none}
+.hero-lights .wire{position:absolute;left:0;right:0;top:10px;height:28px;border-top:2px solid rgba(255,255,255,.7);border-radius:50%;transform:scaleY(.55)}
+.hero-lights i{position:absolute;top:20px;width:9px;height:13px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff,0 4px 10px rgba(255,255,255,.45);animation:bulbBlink 1.8s ease-in-out infinite}
+.hero-lights i:nth-child(2n){background:#ffd36b;box-shadow:0 0 14px #ffd36b;animation-delay:.45s}
+.hero-lights i:nth-child(3n){background:#ef8b9a;box-shadow:0 0 14px #ef8b9a;animation-delay:.9s}
+@keyframes bulbBlink{0%,100%{opacity:.55;transform:scale(.75)}50%{opacity:1;transform:scale(1)}}
+.brand-marquee{width:100%;display:flex;justify-content:center;gap:clamp(18px,4vw,48px);align-items:center;text-align:center;padding:12px 18px;background:#fff;color:#d3122b;font-family:Lobster,cursive;font-size:clamp(18px,3vw,28px);overflow:hidden;white-space:nowrap}
+.brand-marquee span{white-space:nowrap}
+.brand-marquee i{font-family:Montserrat,Arial,sans-serif;font-size:14px;font-style:normal}
+.coca-banner{position:relative;width:100%;aspect-ratio:16/9;margin:18px 0;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#ed1835 0%,#c9001c 68%,#9d0017 100%);box-shadow:0 14px 34px rgba(109,0,16,.28);isolation:isolate}
+.coca-banner::before{content:"";position:absolute;left:-12%;right:-12%;bottom:-42%;height:72%;border-radius:50%;background:#fff;transform:rotate(-5deg);z-index:-1}
+.coca-banner::after{content:"";position:absolute;width:150px;height:150px;border:1px solid rgba(255,255,255,.22);border-radius:50%;right:-35px;top:-55px;box-shadow:0 0 0 18px rgba(255,255,255,.055),0 0 0 36px rgba(255,255,255,.035)}
+.banner-copy{position:relative;z-index:2;padding:18px 70px;text-shadow:0 3px 12px rgba(109,0,16,.35)}
+.banner-copy small{display:block;font-size:clamp(8px,1.2vw,12px);letter-spacing:.28em;font-weight:800;margin-bottom:5px}
+.banner-copy strong{display:block;font-family:Lobster,cursive;font-size:clamp(22px,4.5vw,48px);line-height:1}
+.banner-copy span{display:block;margin-top:7px;font-size:clamp(10px,1.5vw,16px);font-weight:800}
+.banner-bottle{position:absolute;z-index:3;right:7%;bottom:-18%;width:11%;max-width:70px;height:78%;transform:rotate(8deg)}
+.banner-bottle .glass{fill:#800018;stroke:#fff;stroke-width:2}
+.banner-bottle .label{fill:#fff}
+.banner-bottle text{font-family:Lobster,cursive;font-size:11px;fill:#d3122b;text-anchor:middle}
+.banner-snow{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1.5px,transparent 2px),radial-gradient(rgba(255,255,255,.8) 1px,transparent 1.5px);background-size:42px 42px,27px 27px;background-position:0 0,12px 18px;opacity:.65}
+.banner-white{background:linear-gradient(135deg,#fff 0%,#fff7f7 100%);color:#d3122b}
+.banner-white::before{background:#d3122b;left:-15%;bottom:-55%;height:82%}
+.banner-white::after{border-color:rgba(211,18,43,.12);box-shadow:0 0 0 18px rgba(211,18,43,.04),0 0 0 36px rgba(211,18,43,.025)}
+.banner-white .banner-copy{text-shadow:none}
+.banner-white .banner-copy small{color:#8d0015}
+.banner-gift{position:absolute;left:7%;bottom:13%;width:14%;max-width:90px;filter:drop-shadow(0 8px 12px rgba(109,0,16,.25))}
+.coca-banner-art{display:block;width:100%;height:100%;object-fit:cover}
+.prize-banner{position:relative;width:100%;aspect-ratio:1/1;margin:0 0 12px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #f4d9dc}
+.prize-banner img{display:block;width:100%;height:100%;object-fit:cover}
+.prize-banner::before{content:"Coca-Cola";position:absolute;right:-5px;bottom:8px;font-family:Lobster,cursive;font-size:clamp(15px,4vw,26px);color:#fff;transform:rotate(-8deg)}
+.prize-banner .mini-gift{width:46%;filter:drop-shadow(0 10px 14px rgba(109,0,16,.2))}
+@media(max-width:560px){.logo{font-size:21px}.logo b{font-size:.8em}}
+.steps{display:flex;gap:6px;font-size:11px;font-weight:800;letter-spacing:.05em}
+.steps span{padding:5px 9px;border-radius:99px;background:rgba(255,255,255,.12);color:#ffd0d5}
+.steps span.on{background:var(--gold);color:#6d0010}
+@media(max-width:560px){.steps span{font-size:0;padding:0;width:12px;height:12px}.steps span.on{width:26px}}
+.view{display:none;animation:in .6s cubic-bezier(.2,.7,.2,1)}
+.view.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero{position:relative;min-height:calc(100svh - 54px);overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;background:radial-gradient(ellipse at 50% 42%,rgba(255,255,255,.12),transparent 38%),linear-gradient(180deg,#ed1935 0%,#d3122b 58%,#a50019 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 22%,rgba(255,255,255,.13) 0 4px,transparent 5px),radial-gradient(circle at 88% 16%,rgba(255,255,255,.16) 0 5px,transparent 6px),radial-gradient(circle at 72% 38%,rgba(255,255,255,.10) 0 3px,transparent 4px);background-size:180px 180px,220px 220px,130px 130px;animation:pulse 5s ease-in-out infinite}
+.ribbon{position:absolute;left:0;top:34%;width:100%;height:46%;opacity:.9}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:15}
+.txt{position:relative;z-index:2;padding:22px 20px 0;max-width:920px;width:100%;display:flex;flex-direction:column;align-items:center}
+.tag{display:inline-block;letter-spacing:.28em;font-size:12px;font-weight:800;color:#fff;border-top:1px solid #fff;border-bottom:1px solid #fff;padding:6px 14px}
+h1{font-family:Pacifico,cursive;font-weight:400;font-size:clamp(38px,7.5vw,88px);line-height:1.02;margin:12px 0 8px;color:#fff;text-shadow:0 5px 0 #8e0014}
+h1 span{display:block;color:#fff}
+.lead{order:2;font-size:clamp(16px,2vw,20px);line-height:1.35;max-width:680px;margin:0 auto 18px;color:#fff;text-shadow:0 2px 8px rgba(109,0,16,.45);letter-spacing:.01em}
+.txt h1{order:1}
+.txt .tag{order:0}
+.txt .lead{order:2}
+.txt .btn{order:3}
+.lead span{display:block;margin-top:3px;font-family:Lobster,cursive;font-size:clamp(20px,2.6vw,27px);color:#fff;text-shadow:0 2px 5px rgba(109,0,16,.55)}
+.btn{display:inline-block;border:0;cursor:pointer;padding:17px 38px;border-radius:999px;background:#fff;color:#d3122b;font:800 15px Montserrat,Arial,sans-serif;letter-spacing:.12em;text-decoration:none;box-shadow:0 0 0 4px rgba(255,255,255,.18),0 10px 30px rgba(109,0,16,.35);animation:glowbtn 2.4s ease-in-out infinite;transition:transform .2s}
+.btn:hover{transform:scale(1.05)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;animation:none;filter:grayscale(.5)}
+.btn.sm{padding:11px 20px;font-size:12px;animation:none}
+svg.scene{position:absolute;bottom:0;left:50%;width:max(100%,900px);transform:translateX(-50%);z-index:1}
+.up{opacity:0;transform:translateY(24px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.35s}.d3{animation-delay:.6s}.d4{animation-delay:.85s}
+.rise{opacity:0;animation:fade 1.4s ease forwards 1s}
+.truck{animation:fade 1s ease forwards 1.2s,drive 1.8s cubic-bezier(.2,.7,.2,1) 1.2s both;opacity:0}
+.bulb{animation:blink 1.6s ease-in-out infinite}.bulb:nth-child(2n){animation-delay:.5s}.bulb:nth-child(3n){animation-delay:1s}
+.star{animation:twinkle 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.gift{animation:shine 3s ease-in-out infinite}
+@keyframes up{to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes drive{from{transform:translateX(160px)}to{transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes twinkle{0%,100%{opacity:.4;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes pulse{50%{opacity:.65}}
+@keyframes shine{50%{filter:brightness(1.25) drop-shadow(0 0 8px #ffd36b)}}
+@keyframes glowbtn{50%{box-shadow:0 0 0 8px rgba(255,255,255,.12),0 10px 30px rgba(0,0,0,.4),0 0 60px rgba(255,211,107,1)}}
+.wrap{max-width:1000px;margin:0 auto;padding:28px 18px 60px}
+.page{background:linear-gradient(#a30e22,#6d0010);min-height:calc(100svh - 54px)}
+h2{font-family:Pacifico,cursive;font-weight:400;font-size:clamp(28px,5vw,46px);margin:8px 0 6px;color:#fff;text-align:center}
+.sub{text-align:center;color:#ffd0d5;margin:0 auto 22px;max-width:620px;line-height:1.5}
+.slot{display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;width:100%;aspect-ratio:3/1;margin:18px 0;border:2px dashed var(--gold);border-radius:16px;background:rgba(255,255,255,.07) center/cover no-repeat;color:var(--gold);font-weight:800;letter-spacing:.08em;font-size:13px;line-height:1.7}
+.slot.sq{aspect-ratio:4/3;margin:0 0 12px;font-size:11px}
+.slot.has span{display:none}
+.slot small{font-weight:500;color:#ffd0d5;letter-spacing:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:#fff;color:#5a0010;border-radius:18px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .25s}
+.card:hover{transform:translateY(-5px)}
+.card .slot{border-color:#d3122b;color:#d3122b;background-color:#fff4f5}
+.card h3{margin:6px 0 4px;font-size:16px}.card p{margin:0 0 12px;font-size:13px;color:#8a3b46}
+.steps4{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:26px 0}
+.steps4 div{background:rgba(255,255,255,.1);border:1px solid rgba(255,211,107,.4);border-radius:16px;padding:16px;font-size:14px;line-height:1.45}
+.steps4 b{display:block;color:var(--gold);font-family:Pacifico,cursive;font-size:28px;font-weight:400}
+.box{background:#fff;color:#5a0010;border-radius:20px;padding:20px;margin:14px 0;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.box h3{margin:0 0 10px}
+label.opt{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border:2px solid #f0c9cf;border-radius:12px;margin:8px 0;cursor:pointer;font-weight:800;font-size:14px}
+label.opt:has(input:checked){border-color:#d3122b;background:#fff0f2}
+input[type=text],input[type=tel]{width:100%;padding:13px;border:2px solid #f0c9cf;border-radius:12px;margin:6px 0;font:500 15px Montserrat,Arial,sans-serif}
+.address-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}
+.address-grid .field{min-width:0}
+.address-grid .field.wide{grid-column:1/-1}
+.address-grid label{display:block;font-size:12px;font-weight:800;color:#6d0010}
+.address-grid input{margin-top:5px}
+.address-grid input:focus{outline:0;border-color:#d3122b;box-shadow:0 0 0 4px rgba(211,18,43,.12)}
+.field-hint{font-weight:500;color:#8a3b46}
+.notice{font-size:12px;line-height:1.5;color:#ffd0d5;text-align:center;margin-top:16px}
+.pix{border:2px dashed #d3122b;border-radius:14px;padding:14px;margin-top:12px;font-size:13px;word-break:break-all}
+.coupon{font-family:Pacifico,cursive;font-size:clamp(30px,7vw,52px);color:var(--gold);text-align:center;border:2px dashed var(--gold);border-radius:16px;padding:12px;margin:10px 0;background:rgba(0,0,0,.18)}
+.prog{height:16px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden;margin:12px 0}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffe38f,#f0a920);transition:width .5s}
+.ten{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}
+.ten button{padding:12px;border-radius:12px;border:2px solid var(--gold);background:transparent;color:#fff;font:800 13px Montserrat,Arial,sans-serif;cursor:pointer}
+.ten button.done{background:var(--gold);color:#6d0010}
+.center{text-align:center}
+.foot{text-align:center;padding:16px;font-size:11px;color:#ffb3bb;background:#4a000b}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}}
+
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:22px 0}
+.trust div{text-align:center;font-size:13px;font-weight:800;padding:14px;border-radius:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,211,107,.35)}
+.faq details{background:rgba(255,255,255,.1);border-radius:12px;margin:8px 0;padding:12px 16px}
+.faq summary{cursor:pointer;font-weight:800;font-size:14px}.faq p{font-size:13px;line-height:1.55;color:#ffd0d5;margin:8px 0 0}
+.alert{display:none;background:var(--gold);color:#6d0010;text-align:center;font-weight:800;padding:12px;font-size:14px}
+.adm{font-size:12px;font-weight:800;color:var(--gold);text-decoration:none;border:1px solid var(--gold);padding:5px 10px;border-radius:99px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:14px 0}
+.stats div{background:#fff;color:#5a0010;border-radius:14px;padding:14px;text-align:center;font-size:12px;font-weight:800}
+.stats b{display:block;font-size:26px;color:#d3122b}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:12px;min-width:760px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid #f0c9cf}th{color:#d3122b}
+select,textarea,input[type=number]{padding:8px;border:2px solid #f0c9cf;border-radius:8px;font:500 13px Montserrat,Arial,sans-serif;width:100%}
+textarea{min-height:110px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.row2{grid-template-columns:1fr}}
+@media(max-width:420px){.address-grid{grid-template-columns:1fr}.address-grid .field.wide{grid-column:auto}}
+.xs{border:0;background:#d3122b;color:#fff;border-radius:8px;padding:6px 10px;font-weight:800;cursor:pointer;font-size:11px}
+@media(max-width:760px){
+ .bar{gap:6px;padding:8px 10px}
+ .coca-banner{aspect-ratio:16/9;margin:14px 0;border-radius:14px}
+ .banner-copy{padding:14px 52px}
+ .banner-copy strong{font-size:clamp(20px,7vw,34px)}
+ .banner-copy span{font-size:clamp(9px,3vw,13px)}
+ .banner-bottle{right:3%;width:15%;height:72%}
+ .banner-gift{left:3%;width:18%}
+ .header-detail{min-width:44px;font-size:6px;letter-spacing:.06em}
+ .header-detail span{display:inline}
+ .header-detail i{width:5px;height:5px}
+ .brand-marquee{justify-content:center;gap:10px;padding:10px 8px;font-size:16px}
+ .brand-marquee span:nth-of-type(3),.brand-marquee i:nth-of-type(2){display:none}
+ .brand-marquee i{font-size:11px}
+ .steps{gap:4px}
+ .adm{font-size:10px;padding:4px 7px}
+ .brand-seal{width:72px;height:72px;right:8px;top:18px;font-size:12px}
+ .brand-seal small{font-size:7px}
+ .coca-bottle{left:4px;width:38px;height:110px;bottom:72px}
+ .hero{min-height:650px}
+ .txt{padding:18px 54px 0}
+ h1{font-size:clamp(36px,11vw,58px);line-height:1.02;margin:14px 0 12px}
+ h1 span{margin-top:4px}
+ .lead{max-width:540px;font-size:15px;margin-bottom:18px}
+ .lead span{font-size:clamp(18px,6vw,24px);line-height:1.25}
+ .tag{font-size:10px;letter-spacing:.22em}
+ .btn{padding:15px 24px;font-size:13px}
+ svg.scene{width:900px;max-width:none;height:360px}
+ .ribbon{height:38%;top:36%}
+ .wrap{padding:24px 12px 44px}
+ .grid{grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr))}
+ .steps4{grid-template-columns:1fr 1fr}
+ .trust{grid-template-columns:1fr 1fr}
+ .box{padding:16px;border-radius:16px}
+ .slot{aspect-ratio:2.4/1}
+ .coupon{font-size:clamp(26px,9vw,44px)}
+ .ten{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .foot{padding:14px 10px;line-height:1.6}
+}
+@media(max-width:420px){
+ .logo{font-size:18px}
+ .logo b{font-size:.78em}
+ .steps span{width:9px;height:9px}
+ .steps span.on{width:18px}
+ .hero{min-height:610px}
+ .txt{padding-top:18px}
+ h1{font-size:38px}
+ .tag{font-size:9px}
+ .lead{font-size:14px}
+ .lead span{font-size:19px}
+ .steps4{grid-template-columns:1fr}
+ .trust{grid-template-columns:1fr}
+ .ten{grid-template-columns:1fr}
+}
+@media(max-width:330px){
+ .logo{font-size:16px}
+ .steps{gap:3px}
+ h1{font-size:34px}
+}
+
+/* Ambient Christmas polish */
+html{scroll-behavior:smooth}
+body::before{
+ content:"";position:fixed;inset:0;z-index:14;pointer-events:none;
+ background:radial-gradient(circle at var(--mx,50%) var(--my,20%),rgba(255,255,255,.13),transparent 15%),linear-gradient(120deg,rgba(255,255,255,.025),transparent 35%,rgba(255,211,107,.025));
+ mix-blend-mode:screen
+}
+.hero::after{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:radial-gradient(ellipse at 50% 90%,transparent 15%,rgba(70,0,10,.12) 70%,rgba(42,0,7,.42) 100%)
+}
+.txt,.hero-lights,.brand-seal,.coca-bottle{will-change:transform}
+.bar{background:linear-gradient(90deg,rgba(169,0,24,.94),rgba(211,18,43,.94),rgba(169,0,24,.94));box-shadow:0 8px 30px rgba(70,0,10,.28)}
+.logo{filter:drop-shadow(0 3px 8px rgba(109,0,16,.25))}
+.coca-banner{transform:translateZ(0);transition:transform .45s ease,box-shadow .45s ease}
+.coca-banner:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(109,0,16,.38)}
+.coca-banner-art{transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .45s ease}
+.coca-banner:hover .coca-banner-art{transform:scale(1.025);filter:saturate(1.08) contrast(1.02)}
+.prize-banner{background:linear-gradient(145deg,#fff,#fff1f3)}
+.prize-banner img{transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .45s ease}
+.card{position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.card::after{content:"";position:absolute;inset:-80% -40%;pointer-events:none;background:linear-gradient(115deg,transparent 43%,rgba(255,255,255,.55) 50%,transparent 57%);transform:translateX(-55%) rotate(8deg);transition:transform .7s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 38px rgba(48,0,8,.42)}
+.card:hover::after{transform:translateX(55%) rotate(8deg)}
+.prize-banner:hover img{transform:scale(1.07);filter:saturate(1.08)}
+.box,.faq details,.ten button,.steps4 div,.trust div{backdrop-filter:blur(12px)}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:-30%;bottom:-30%;left:-55%;width:38%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);transition:left .8s ease}
+.btn:hover::after{left:125%}
+.brand-marquee{position:relative;box-shadow:0 5px 18px rgba(58,0,8,.12)}
+.brand-marquee::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(211,18,43,.08),transparent 20%,transparent 80%,rgba(211,18,43,.08));pointer-events:none}
+.ten button{transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
+.ten button:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.view.on{position:relative}
+.scroll-progress{position:fixed;z-index:40;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,#fff,#ffd36b,#fff);box-shadow:0 0 12px rgba(255,211,107,.9);pointer-events:none}
+.reveal-soft{opacity:0!important;transform:translateY(18px)!important;transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)!important}
+.reveal-soft.visible{opacity:1!important;transform:none!important}
+/* Painel administrativo imersivo */
+#v-admin .page{position:relative;background:radial-gradient(circle at 20% 10%,rgba(255,211,107,.09),transparent 24%),linear-gradient(155deg,#9d001d 0,#66000f 100%)}
+#v-admin .page::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.25),transparent 42%)}
+#v-admin .wrap{position:relative;z-index:1;max-width:1180px}
+.admin-kicker{text-align:center;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#ffd36b;margin:0 0 8px}
+.admin-toolbar{display:flex;align-items:center;gap:10px;margin:18px 0 14px;padding:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;backdrop-filter:blur(14px)}
+.admin-toolbar .live{display:flex;align-items:center;gap:8px;min-width:max-content;font-size:11px;font-weight:800;color:#fff}
+.admin-toolbar .live i{width:8px;height:8px;border-radius:50%;background:#72df91;box-shadow:0 0 14px #72df91;animation:livePulse 1.8s ease-in-out infinite}
+.admin-toolbar input,.admin-toolbar select{height:42px;margin:0;background:rgba(255,255,255,.96);border:0;border-radius:10px;padding:0 12px;color:#5a0010}
+.admin-toolbar input{flex:1;min-width:140px}
+.admin-toolbar select{max-width:180px}
+@keyframes livePulse{50%{opacity:.45;transform:scale(.75)}}
+.stats{gap:14px}
+.stats div{position:relative;overflow:hidden;border:1px solid rgba(255,211,107,.22);border-radius:16px;padding:18px 14px;box-shadow:0 12px 28px rgba(48,0,8,.18);transition:transform .25s ease,box-shadow .25s ease}
+.stats div::after{content:"";position:absolute;right:-20px;bottom:-34px;width:74px;height:74px;border-radius:50%;background:rgba(211,18,43,.08)}
+.stats div:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(48,0,8,.28)}
+.stats b{font-family:Pacifico,cursive;font-weight:400;font-size:32px}
+#v-admin .box{border:1px solid rgba(255,255,255,.5);box-shadow:0 16px 40px rgba(48,0,8,.24)}
+#v-admin .box h3{display:flex;align-items:center;justify-content:space-between;color:#6d0010}
+#v-admin .tw{border-radius:12px;background:#fff;padding:4px}
+#v-admin table{font-size:12px}
+#v-admin tbody tr{transition:background .2s ease,transform .2s ease}
+#v-admin tbody tr:hover{background:#fff1f3}
+#v-admin td,#v-admin th{border-bottom:1px solid #f2d8dc}
+#v-admin tbody tr:last-child td{border-bottom:0}
+.table-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.table-actions .btn.sm{animation:none}
+.admin-empty{text-align:center;padding:28px 12px!important;color:#8a3b46}
+.quiet-dots{display:inline-flex;align-items:center;justify-content:center;width:22px;height:24px;color:rgba(255,255,255,.72);text-decoration:none;font-size:17px;letter-spacing:1px;border-radius:8px;transition:background .2s ease,color .2s ease}
+.quiet-dots:hover,.quiet-dots:focus-visible{color:#fff;background:rgba(255,255,255,.14);outline:0}
+.account-wrap{max-width:560px}
+.auth-card{overflow:hidden;padding:0!important;border:1px solid rgba(255,255,255,.62)!important;background:linear-gradient(145deg,#fff 0%,#fff8f8 100%)!important}
+.auth-head{padding:24px 24px 18px;text-align:center;background:radial-gradient(circle at 50% 0,rgba(255,211,107,.25),transparent 58%),linear-gradient(135deg,#fff8f8,#fff)}
+.auth-icon{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0 auto 10px;border-radius:50%;background:#d3122b;color:#fff;font-size:24px;box-shadow:0 7px 20px rgba(109,0,16,.22)}
+.auth-head h2{color:#a50019;font-size:clamp(28px,6vw,38px);margin:0 0 4px}
+.auth-head p{margin:0;color:#8a3b46;font-size:13px;line-height:1.5}
+.auth-body{padding:20px 24px 24px}
+.auth-body label{display:block;margin:10px 0 4px;color:#6d0010;font-size:12px;font-weight:800}
+.auth-body input{margin:4px 0 8px}
+.auth-body .btn{width:100%;margin-top:8px}
+.auth-notice{margin:0 24px 18px;padding:12px 14px;border:1px solid #f0c9cf;border-radius:12px;background:#fff0f2;color:#6d0010;font-size:12px;line-height:1.5}
+.auth-switch{text-align:center;color:#8a3b46;font-size:13px;margin:16px 0 0}
+.auth-switch a{color:#b0001e;font-weight:800}
+.auth-safety{margin:0 0 14px;padding:10px 12px;border-left:3px solid #d3122b;background:#fff0f2;color:#6d0010;font-size:11px;line-height:1.5}
+.auth-preview{margin:0 24px 18px!important;color:#6d0010!important}
+.privacy-consent{display:flex;align-items:flex-start;gap:9px;margin:12px 0;color:#6d0010;font-size:11px;font-weight:500;line-height:1.45}
+.privacy-consent input{width:auto;margin:2px 0 0;flex:0 0 auto}
+.account-bar{display:flex;align-items:center;gap:10px;margin-left:12px}
+.account-bar .account-name{max-width:145px;overflow:hidden;text-overflow:ellipsis;color:#fff;font-size:10px;font-weight:800}
+.account-bar button{border:1px solid rgba(255,255,255,.7);border-radius:999px;background:transparent;color:#fff;padding:6px 10px;font:800 10px Montserrat,Arial,sans-serif;cursor:pointer}
+.user-count{font-size:12px;color:#8a3b46;margin:0}
+.user-table{width:100%;min-width:640px;border-collapse:collapse;font-size:12px}
+.user-table th,.user-table td{padding:9px 8px;text-align:left;border-bottom:1px solid #f0c9cf}
+.role-pill{display:inline-block;border-radius:99px;background:#fff0f2;color:#8d0015;padding:4px 8px;font-size:10px;font-weight:800}
+@media(max-width:760px){
+ body::before{opacity:.55}
+ .coca-banner:hover,.card:hover,.ten button:hover{transform:none}
+ .admin-toolbar{flex-wrap:wrap}
+ .admin-toolbar input{width:100%;flex-basis:100%}
+ .admin-toolbar select{max-width:none;flex:1}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #v-admin .wrap{padding-left:10px;padding-right:10px}
+ .quiet-dots{width:20px}
+}
+@media(max-width:560px){
+ #v-admin .page{background:radial-gradient(ellipse at 50% 0,rgba(255,211,107,.14),transparent 36%),linear-gradient(160deg,#9d001d,#56000d)}
+ #v-admin .page::before{background-size:27px 27px;opacity:.5}
+ #v-admin .wrap{padding:18px 10px 38px}
+ #v-admin h2{font-size:clamp(28px,9vw,38px);margin:4px 0 14px;text-shadow:0 3px 14px rgba(0,0,0,.2)}
+ .admin-kicker{letter-spacing:.13em;font-size:9px}
+ .admin-toolbar{position:sticky;top:56px;z-index:10;gap:8px;margin:12px 0;padding:10px;border-radius:14px;background:rgba(83,0,13,.86);box-shadow:0 10px 28px rgba(40,0,7,.25)}
+ .admin-toolbar .live{width:100%;font-size:10px}
+ .admin-toolbar input,.admin-toolbar select{height:44px;font-size:13px}
+ .admin-toolbar select{flex-basis:100%}
+ .auth-head{padding:20px 18px 15px}
+ .auth-body{padding:16px 18px 20px}
+ .auth-preview{margin:0 18px 16px!important}
+ .auth-notice{margin-left:18px;margin-right:18px}
+ .stats{gap:9px;margin:12px 0}
+ .stats div{padding:14px 8px;min-height:84px;border-radius:14px;font-size:11px;line-height:1.35}
+ .stats b{font-size:26px;line-height:1.2;overflow-wrap:anywhere}
+ #v-admin .box{margin:12px 0;padding:14px;border-radius:17px}
+ #v-admin .box h3{font-size:16px;line-height:1.25}
+ #v-admin .row2{gap:8px}
+ #v-admin .row2 b{font-size:12px}
+ #v-admin textarea{min-height:105px;font-size:13px}
+ .table-actions{align-items:stretch;flex-direction:column}
+ .table-actions .btn{width:100%}
+ #v-admin .tw{overflow:visible;background:transparent;padding:0}
+ #v-admin table{display:block;width:100%;min-width:0;font-size:12px}
+ #v-admin thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ #v-admin tbody{display:grid;gap:10px}
+ #v-admin tbody tr{display:block;background:#fff;border:1px solid rgba(255,211,107,.5);border-radius:14px;padding:7px 12px;box-shadow:0 9px 24px rgba(48,0,8,.18)}
+ #v-admin tbody td{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:8px 0;text-align:right;overflow-wrap:anywhere}
+ #v-admin tbody td::before{content:attr(data-label);font-weight:800;color:#8a3b46;text-align:left;flex:0 0 35%}
+ #v-admin tbody td select{max-width:62%;padding:7px;font-size:11px}
+ #v-admin tbody td button{flex:0 0 auto}
+ #v-admin tbody td[colspan]::before{display:none}
+ .user-table{min-width:0}
+}
+@media(prefers-reduced-motion:reduce){
+ body::before,.card::after,.btn::after{display:none}
+ .reveal-soft{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<canvas id="snow"></canvas>
+<header class="bar">
+<div class="header-detail"><i></i><span>MÁGIA</span><a class="quiet-dots" href="#conta" aria-label="Abrir acesso à conta" title="Conta">···</a></div>
+<a class="logo" href="#inicio"><span>Natal</span><b>Coca-Cola</b></a>
+<div class="header-detail right"><span>NATAL</span><i></i><nav class="steps"><span data-s="premios">1 PRÊMIO</span><span data-s="divulgar">2 DIVULGAR</span><span data-s="pagamento">3 FRETE</span><span data-s="final">4 RECEBER</span></nav><a class="adm" id="admlink" href="#admin" hidden>ADMIN</a><div class="account-bar" id="account-bar" hidden><span class="account-name" id="account-name"></span><button id="logout" type="button">SAIR</button></div></div>
+</header>
+
+<div class="alert" id="aviso">Campanha temporariamente pausada. Volte em breve!</div>
+<!-- INÍCIO -->
+<main class="view" id="v-inicio">
+<section class="hero">
+<div class="hero-lights" aria-hidden="true">
+<div class="wire"></div>
+<i style="left:3%"></i><i style="left:10%"></i><i style="left:17%"></i><i style="left:24%"></i><i style="left:31%"></i><i style="left:38%"></i><i style="left:45%"></i><i style="left:52%"></i><i style="left:59%"></i><i style="left:66%"></i><i style="left:73%"></i><i style="left:80%"></i><i style="left:87%"></i><i style="left:94%"></i>
+</div>
+<div class="brand-seal"><div><small>TRADIÇÃO DE</small>A magia<br>da Coca-Cola</div></div>
+<svg class="coca-bottle" viewBox="0 0 70 190" aria-hidden="true">
+<path class="bottle-glass" d="M25 8h20l-2 18c-1 8 3 14 8 21 7 9 9 23 9 41v70c0 13-8 20-20 20H30c-12 0-20-7-20-20V88c0-18 2-32 9-41 5-7 9-13 8-21z"/>
+<rect x="24" y="2" width="22" height="10" rx="3" fill="#d3122b" stroke="#fff" stroke-width="2"/>
+<rect class="bottle-label" x="15" y="75" width="40" height="55" rx="7"/>
+<text class="bottle-script" x="35" y="100" text-anchor="middle">Coca-Cola</text>
+<path d="M18 116c10-8 24-8 34 0-10 7-24 7-34 0z" fill="#d3122b"/>
+</svg>
+<svg class="ribbon" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M-20 200 C250 40 450 300 700 150 S1050 60 1220 130 V190 C1050 120 850 230 700 210 S300 110 -20 270Z" fill="#fff" opacity=".9"/></svg>
+<div class="txt">
+<div class="tag up d1">COCA-COLA APRESENTA</div>
+<h1 class="up d2">Um Natal cheio <span>de presentes!</span></h1>
+<p class="lead up d3">🎄 Este Natal, a magia chega até você!<span>Escolha seu presente e participe da campanha.</span></p>
+<a class="btn up d4" href="#premios">QUERO MEU PRESENTE</a>
+</div>
+<svg class="scene rise" viewBox="0 0 1200 430" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+<defs>
+<linearGradient id="mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9aa6"/><stop offset="1" stop-color="#9b0a22"/></linearGradient>
+<symbol id="tree" viewBox="0 0 120 200" overflow="visible">
+<rect x="54" y="170" width="12" height="26" fill="#4a2a14"/>
+<path d="M60 20 L100 80 H20Z M60 60 L110 125 H10Z M60 100 L118 172 H2Z" fill="#0f3d2a"/>
+<path d="M60 20 L100 80 H20Z M60 60 L110 125 H10Z M60 100 L118 172 H2Z" fill="none" stroke="#1d6b47" stroke-width="2"/>
+<g fill="#ffd36b"><circle class="bulb" cx="45" cy="60" r="4"/><circle class="bulb" cx="75" cy="52" r="4"/><circle class="bulb" cx="60" cy="85" r="4"/><circle class="bulb" cx="30" cy="110" r="4"/><circle class="bulb" cx="90" cy="108" r="4"/><circle class="bulb" cx="58" cy="128" r="4"/><circle class="bulb" cx="20" cy="155" r="4"/><circle class="bulb" cx="98" cy="152" r="4"/><circle class="bulb" cx="60" cy="158" r="4"/></g>
+<path class="star" d="M60 0 L65 14 L80 14 L68 23 L72 38 L60 29 L48 38 L52 23 L40 14 L55 14Z" fill="#ffd36b"/>
+</symbol>
+<symbol id="gift" viewBox="0 0 100 100" overflow="visible">
+<rect x="5" y="35" width="90" height="62" rx="4" fill="#f5f5f5"/>
+<rect x="43" y="35" width="14" height="62" fill="#e0a800"/>
+<rect x="3" y="26" width="94" height="16" rx="3" fill="#ffffff"/>
+<rect x="43" y="26" width="14" height="16" fill="#ffd36b"/>
+<path d="M50 26 C30 0 12 14 28 24Z M50 26 C70 0 88 14 72 24Z" fill="#ffd36b"/>
+</symbol>
+</defs>
+
+<!-- montanhas -->
+<path d="M0 330 L130 170 L210 250 L330 120 L470 300 L560 210 L700 330Z" fill="url(#mt)" opacity=".55"/>
+<path d="M500 330 L680 150 L780 260 L900 130 L1040 280 L1120 200 L1200 300 V330Z" fill="url(#mt)" opacity=".55"/>
+<path d="M130 170 L100 205 L130 195 L150 215Z M330 120 L295 170 L330 160 L355 180Z M680 150 L650 190 L680 182 L700 200Z M900 130 L865 180 L900 170 L925 190Z" fill="#fff" opacity=".85"/>
+<!-- estrelas -->
+<g fill="#ffd36b"><circle class="star" cx="80" cy="60" r="3"/><circle class="star" cx="260" cy="30" r="2.5" style="animation-delay:.6s"/><circle class="star" cx="1040" cy="50" r="3" style="animation-delay:1s"/><circle class="star" cx="1130" cy="110" r="2.5" style="animation-delay:.3s"/><circle class="star" cx="900" cy="20" r="2" style="animation-delay:1.4s"/><circle class="star" cx="420" cy="70" r="2" style="animation-delay:.9s"/></g>
+<!-- chão de neve -->
+<path d="M0 380 Q300 340 600 372 T1200 360 V430 H0Z" fill="#fff"/>
+<path d="M0 405 Q400 380 800 400 T1200 395 V430 H0Z" fill="#e9eef7"/>
+<!-- árvores -->
+<use href="#tree" x="20" y="170" width="150" height="250"/>
+<use href="#tree" x="150" y="230" width="100" height="165"/>
+<use href="#tree" x="1030" y="160" width="160" height="260"/>
+<use href="#tree" x="940" y="235" width="95" height="155"/>
+<!-- guirlanda -->
+<path d="M0 8 Q150 60 300 8 T600 8 T900 8 T1200 8" fill="none" stroke="#0f3d2a" stroke-width="8" opacity=".9"/>
+<g fill="#ffd36b"><circle class="bulb" cx="75" cy="30" r="5"/><circle class="bulb" cx="225" cy="30" r="5"/><circle class="bulb" cx="375" cy="30" r="5"/><circle class="bulb" cx="525" cy="30" r="5"/><circle class="bulb" cx="675" cy="30" r="5"/><circle class="bulb" cx="825" cy="30" r="5"/><circle class="bulb" cx="975" cy="30" r="5"/><circle class="bulb" cx="1125" cy="30" r="5"/></g>
+
+<!-- caminhão natalino original -->
+<g class="truck">
+<ellipse cx="600" cy="400" rx="300" ry="14" fill="rgba(0,0,0,.25)"/>
+<!-- faróis -->
+<path d="M870 330 L1010 295 V375 L870 345Z" fill="#ffd36b" opacity=".3"/>
+<!-- baú -->
+<rect x="320" y="228" width="370" height="150" rx="10" fill="#c8102e"/>
+<rect x="320" y="228" width="370" height="150" rx="10" fill="none" stroke="#ff5a6e" stroke-width="3"/>
+<rect x="320" y="340" width="370" height="12" fill="#ffd36b"/>
+<text x="505" y="305" text-anchor="middle" font-family="Lobster,cursive" font-weight="900" font-size="44" fill="#fff">Natal Coca-Cola</text>
+<text x="505" y="330" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="14" letter-spacing="5" fill="#ffd36b">A MAGIA DESSE NATAL</text>
+<!-- luzes no teto -->
+<path d="M322 228 H688" stroke="#0f3d2a" stroke-width="4"/>
+<g fill="#ffd36b"><circle class="bulb" cx="340" cy="234" r="5"/><circle class="bulb" cx="385" cy="234" r="5"/><circle class="bulb" cx="430" cy="234" r="5"/><circle class="bulb" cx="475" cy="234" r="5"/><circle class="bulb" cx="520" cy="234" r="5"/><circle class="bulb" cx="565" cy="234" r="5"/><circle class="bulb" cx="610" cy="234" r="5"/><circle class="bulb" cx="655" cy="234" r="5"/></g>
+<!-- presentes no teto -->
+<use class="gift" href="#gift" x="350" y="170" width="70" height="70"/>
+<use class="gift" href="#gift" x="430" y="185" width="55" height="55"/>
+<use class="gift" href="#gift" x="580" y="165" width="80" height="80"/>
+<!-- cabine -->
+<path d="M700 378 V262 Q700 244 718 244 H800 Q820 244 832 262 L868 310 Q876 322 876 336 V378Z" fill="#a50d26"/>
+<path d="M722 262 H796 L840 316 H722Z" fill="#cfe9ff"/>
+<path d="M722 262 H796 L840 316 H722Z" fill="#fff" opacity=".18"/>
+<!-- Papai Noel original na janela -->
+<g transform="translate(748 270)">
+<circle cx="22" cy="30" r="17" fill="#f6c9a0"/>
+<path d="M4 24 Q22 -8 40 24 Q22 14 4 24Z" fill="#d6001c"/>
+<circle cx="42" cy="22" r="6" fill="#fff"/>
+<rect x="3" y="22" width="38" height="8" rx="4" fill="#fff"/>
+<path d="M6 38 Q22 64 38 38 Q22 46 6 38Z" fill="#fff"/>
+<circle cx="16" cy="30" r="2" fill="#333"/><circle cx="28" cy="30" r="2" fill="#333"/>
+<circle cx="22" cy="35" r="3" fill="#e88a7a"/>
+</g>
+<rect x="840" y="326" width="36" height="14" rx="3" fill="#ffd36b"/>
+<rect x="868" y="346" width="14" height="18" rx="3" fill="#fff6c9"/>
+<rect x="700" y="378" width="190" height="14" rx="4" fill="#6d0010"/>
+<!-- rodas -->
+<g fill="#1b1b1b"><circle cx="410" cy="384" r="26"/><circle cx="480" cy="384" r="26"/><circle cx="780" cy="384" r="28"/></g>
+<g fill="#ffd36b"><circle cx="410" cy="384" r="11"/><circle cx="480" cy="384" r="11"/><circle cx="780" cy="384" r="12"/></g>
+</g>
+
+<!-- presentes no chão -->
+<use class="gift" href="#gift" x="190" y="318" width="110" height="110"/>
+<use class="gift" href="#gift" x="262" y="352" width="70" height="70" style="animation-delay:1s"/>
+<use class="gift" href="#gift" x="890" y="326" width="95" height="95" style="animation-delay:.5s"/>
+<use class="gift" href="#gift" x="800" y="370" width="55" height="55" style="animation-delay:1.5s"/>
+</svg>
+</section>
+<div class="brand-marquee"><span>Coca-Cola</span><i>✦</i><span>O sabor do Natal</span><i>✦</i><span>Momentos mágicos</span></div>
+<div class="page"><div class="wrap">
+<div class="coca-banner"><img class="coca-banner-art" src="assets/banner-compartilhe.jpg" alt="Banner Compartilhe a energia Coca-Cola"></div>
+<h2>Como funciona</h2>
+<div class="steps4"><div><b>1</b>Escolha o presente dos seus sonhos.</div><div><b>2</b>Divulgue seu cupom para 10 pessoas.</div><div><b>3</b>Pague apenas o frete da entrega.</div><div><b>4</b>Prêmio liberado e a caminho!</div></div>
+<div class="coca-banner"><img class="coca-banner-art" src="assets/banner-felicidade.jpg" alt="Banner Coca-Cola Abra a Felicidade"></div>
+<div class="trust"><div>🎁 Prêmios selecionados</div><div>🚚 Entrega com prazo escolhido</div><div>💬 Suporte pelo WhatsApp</div></div>
+<h2>Dúvidas frequentes</h2>
+<div class="faq"><details><summary>Preciso pagar alguma coisa?</summary><p>Sim, apenas o frete da entrega, que você escolhe na hora. O valor aparece antes de pagar.</p></details>
+<details><summary>Por que divulgar o cupom?</summary><p>É a regra da campanha: o prêmio é liberado depois que você divulga seu cupom para a quantidade de pessoas definida.</p></details>
+<details><summary>Em quanto tempo recebo?</summary><p>Conforme o frete escolhido: de 3 a 15 dias após a liberação.</p></details></div>
+<p class="notice">Campanha da <span class="brand">Coca-Cola</span>. Primeiro divulgue seu cupom; depois, pague o frete para liberar o prêmio. Consulte o regulamento.</p>
+</div></div>
+</main>
+
+<!-- Conta: telas de prévia até a autenticação Supabase ser configurada -->
+<main class="view" id="v-conta"><div class="page"><div class="wrap account-wrap">
+<div class="box auth-card">
+<div class="auth-head"><div class="auth-icon" aria-hidden="true">❄</div><h2>Bem-vindo de volta</h2><p>Entre para acessar sua conta.</p></div>
+<div class="auth-body">
+<p class="auth-safety" id="auth-config-note">Configure o Supabase para habilitar o login. As senhas são validadas pelo serviço de autenticação e nunca ficam armazenadas no HTML.</p>
+<form id="login-form" autocomplete="on">
+<label for="login-email">E-mail</label><input id="login-email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+<label for="login-password">Senha</label><input id="login-password" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+<button class="btn" type="submit">ENTRAR</button>
+</form>
+<p class="auth-switch">Ainda não tem cadastro? <a href="#cadastro">Criar conta</a></p>
+</div>
+<p class="auth-notice" id="login-notice" role="status" hidden></p>
+</div>
+<p class="center"><a class="adm" href="#inicio">VOLTAR AO INÍCIO</a></p>
+</div></div></main>
+
+<main class="view" id="v-cadastro"><div class="page"><div class="wrap account-wrap">
+<div class="box auth-card">
+<div class="auth-head"><div class="auth-icon" aria-hidden="true">🎁</div><h2>Criar cadastro</h2><p>Informe seus dados para criar sua conta.</p></div>
+<div class="auth-body">
+<p class="auth-safety" id="signup-config-note">Configure o Supabase para habilitar o cadastro. O nome, e-mail e telefone serão usados para identificação da conta e suporte; o endereço para entrega é informado no checkout.</p>
+<details class="faq" style="margin:0 0 12px;color:#6d0010"><summary style="font-size:12px">Como serão usados meus dados?</summary><p style="color:#6d0010">Nome, e-mail e telefone são usados para criar e administrar a conta e para suporte. O endereço é solicitado separadamente no checkout para entrega. Antes de ativar o cadastro, o responsável pela campanha deve publicar um aviso completo com sua identificação, contato, retenção e canal para solicitações LGPD.</p></details>
+<p class="auth-switch"><a id="privacy-link" href="#" target="_blank" rel="noopener" hidden>Abrir aviso de privacidade completo</a></p>
+<form id="signup-form" autocomplete="on">
+<label for="signup-name">Nome completo</label><input id="signup-name" type="text" placeholder="Seu nome e sobrenome" autocomplete="name" required>
+<label for="signup-email">E-mail</label><input id="signup-email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+<label for="signup-phone">Telefone com DDD</label><input id="signup-phone" type="tel" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" required>
+<label for="signup-password">Senha</label><input id="signup-password" type="password" placeholder="Crie uma senha" autocomplete="new-password" minlength="8" required>
+<label for="signup-confirm">Confirmar senha</label><input id="signup-confirm" type="password" placeholder="Digite a senha novamente" autocomplete="new-password" minlength="8" required>
+<label class="privacy-consent"><input id="signup-consent" type="checkbox" required><span>Concordo com o uso do meu nome, e-mail e telefone para criar e administrar minha conta, conforme o aviso acima.</span></label>
+<button class="btn" id="signup-submit" type="submit" disabled>CRIAR CONTA</button>
+</form>
+<p class="auth-switch">Já tem uma conta? <a href="#conta">Entrar</a></p>
+</div>
+<p class="auth-notice" id="signup-notice" role="status" hidden></p>
+</div>
+<p class="center"><a class="adm" href="#inicio">VOLTAR AO INÍCIO</a></p>
+</div></div></main>
+
+<!-- PRÊMIOS -->
+<main class="view" id="v-premios"><div class="page"><div class="wrap">
+<h2>Escolha seu presente</h2>
+<p class="sub">Selecione o prêmio que quer receber neste Natal.</p>
+<div class="coca-banner"><img class="coca-banner-art" src="assets/banner-escolha-presente.png" alt="Banner Um Natal Mágico com Coca-Cola"></div>
+<div class="grid" id="prizes"></div>
+<p class="notice">Divulgue seu cupom para 10 pessoas antes de escolher e pagar o frete.</p>
+</div></div></main>
+
+<!-- PAGAMENTO -->
+<main class="view" id="v-pagamento"><div class="page"><div class="wrap" style="max-width:640px">
+<h2>Pague o frete</h2>
+<p class="sub" id="pz"></p>
+<div class="box"><h3>Escolha a entrega</h3><div id="fretes"></div></div>
+<div class="box"><h3>Seus dados</h3>
+<div class="address-grid">
+<div class="field wide"><label for="nome">Nome completo</label><input type="text" id="nome" placeholder="Seu nome e sobrenome" autocomplete="name" required></div>
+<div class="field wide"><label for="zap">WhatsApp com DDD</label><input type="tel" id="zap" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" required></div>
+<div class="field"><label for="cep">CEP</label><input type="text" id="cep" placeholder="00000-000" autocomplete="postal-code" inputmode="numeric" maxlength="9" required></div>
+<div class="field"><label for="estado">Estado (UF)</label><input type="text" id="estado" placeholder="SP" autocomplete="address-level1" maxlength="2" required></div>
+<div class="field wide"><label for="rua">Nome da rua / avenida</label><input type="text" id="rua" placeholder="Rua, avenida, travessa..." autocomplete="address-line1" required></div>
+<div class="field"><label for="numero">Número</label><input type="text" id="numero" placeholder="Número da casa" autocomplete="off" required></div>
+<div class="field"><label for="complemento">Complemento <span class="field-hint">(opcional)</span></label><input type="text" id="complemento" placeholder="Apto, bloco, casa..." autocomplete="address-line2"></div>
+<div class="field"><label for="bairro">Bairro</label><input type="text" id="bairro" placeholder="Seu bairro" autocomplete="address-level3" required></div>
+<div class="field"><label for="cidade">Cidade</label><input type="text" id="cidade" placeholder="Sua cidade" autocomplete="address-level2" required></div>
+<div class="field wide"><label for="referencia">Ponto de referência <span class="field-hint">(opcional)</span></label><input type="text" id="referencia" placeholder="Ex.: próximo à praça" autocomplete="off"></div>
+</div>
+<p class="center"><button class="btn" id="gerar">GERAR PIX DO FRETE</button></p>
+<div class="pix" id="pix" hidden><b>Pix copia e cola</b><br>[EXEMPLO] 00020126…<br><small>Aqui entra o QR Code e o código gerados pela VizzionPay.</small><p class="center"><button class="btn sm" id="pago">SIMULAR PAGAMENTO APROVADO (TESTE)</button></p></div></div>
+<div class="coca-banner"><img class="coca-banner-art" src="assets/banner-entrega.jpg" alt="Banner Coca-Cola entrega especial de Natal"></div>
+</div></div></main>
+
+<!-- DIVULGAR -->
+<main class="view" id="v-divulgar"><div class="page"><div class="wrap" style="max-width:720px">
+<h2>Compartilhe seu cupom</h2>
+<p class="sub">Divulgue seu cupom para 10 pessoas. Depois, você poderá escolher e pagar o frete para receber seu presente.</p>
+<div class="coupon" id="coupon"></div>
+<div class="prog"><i id="bar"></i></div>
+<p class="center" id="cnt"><b>0 de 10</b> divulgações</p>
+<div class="ten" id="ten"></div>
+<p class="center"><button class="btn" id="libera" disabled>CONTINUAR PARA PAGAR O FRETE</button></p>
+<div class="coca-banner"><img class="coca-banner-art" src="assets/banner-compartilhe.jpg" alt="Banner Compartilhe a energia Coca-Cola"></div>
+</div></div></main>
+
+<!-- FINAL -->
+<main class="view" id="v-final"><div class="page"><div class="wrap center" style="max-width:640px">
+<h2>Presente liberado! 🎁</h2>
+<p class="sub" id="fim"></p>
+<div class="coupon" id="coupon2"></div>
+<div class="coca-banner"><img class="coca-banner-art" src="assets/banner-felicidade.jpg" alt="Banner Coca-Cola Abra a Felicidade"></div>
+<a class="btn" href="#inicio">VOLTAR AO INÍCIO</a>
+</div></div></main>
+
+<!-- ADMIN -->
+<main class="view" id="v-admin"><div class="page"><div class="wrap">
+<p class="admin-kicker">Central de controle da campanha</p>
+<h2>Painel administrativo</h2>
+<div class="box" id="adlock" hidden><h3>Acesso restrito</h3><p>Entre com uma conta autorizada para acessar o painel.</p><p><a class="btn sm" href="#conta">ENTRAR NA CONTA</a></p></div>
+<div id="adbody" hidden>
+<div class="admin-toolbar">
+<div class="live"><i></i><span>Campanha ao vivo</span></div>
+<input type="search" id="admin-search" placeholder="Buscar participante, cupom ou prêmio" aria-label="Buscar pedidos">
+<select id="admin-status" aria-label="Filtrar por status">
+<option value="">Todos os status</option>
+<option value="aguardando pagamento">Aguardando pagamento</option>
+<option value="pago">Pago</option>
+<option value="liberado">Liberado</option>
+<option value="enviado">Enviado</option>
+<option value="cancelado">Cancelado</option>
+</select>
+</div>
+<div class="stats" id="stats"></div>
+<div class="box"><h3>Controle da campanha</h3>
+<label class="opt"><span>Campanha ativa</span><input type="checkbox" id="c-ativa"></label>
+<div class="row2"><div><b>Divulgações para liberar</b><input type="number" id="c-meta" min="1" max="100"></div><div></div></div>
+<div class="row2"><div><b>Prêmios (um por linha: Nome | descrição)</b><textarea id="c-prizes"></textarea></div><div><b>Fretes disponíveis (valores fixos)</b><textarea id="c-fretes" readonly></textarea></div></div>
+<p><button class="btn sm" id="c-save">SALVAR CONFIGURAÇÕES</button></p></div>
+<div class="box"><h3>Participantes e pedidos</h3><div class="table-actions"><span class="sub" id="table-count" style="margin:0;text-align:left;color:#8a3b46"></span><button class="btn sm" id="csv">EXPORTAR CSV</button></div>
+<div class="tw"><table><thead><tr><th>Data</th><th>Nome</th><th>WhatsApp</th><th>Prêmio</th><th>Frete</th><th>Cupom</th><th>Divulg.</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="notice" id="adinfo" style="color:#8a3b46"></p></div>
+<div class="box"><h3>Contas cadastradas</h3><p class="user-count" id="user-count">Carregando contas...</p><div class="tw"><table class="user-table"><thead><tr><th>Nome</th><th>E-mail</th><th>Telefone</th><th>Cadastro</th><th>Permissão</th><th>Ações</th></tr></thead><tbody id="user-rows"><tr><td colspan="6">As contas são exibidas após configurar o Supabase.</td></tr></tbody></table></div><p class="notice" id="user-info" style="color:#8a3b46"></p></div>
+</div></div></div></main>
+<div class="foot"><span class="brand">Natal Coca-Cola</span> · Campanha independente · Regulamento · Todos os direitos reservados</div>
+
+<script src="supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+var BRL=function(v){return Number(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})};
+var $=function(i){return document.getElementById(i)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var PRIZE_IMAGES=['assets/kit-classico.jpg','assets/kit-gelado.jpg','assets/kit-decorativo.jpg','assets/kit-aconchego.jpg'];
+var FRETES_FIXOS=[{v:33.25,d:3},{v:25.60,d:10},{v:12.33,d:15}];
+var CFG={ativa:true,meta:10,
+prizes:[{n:'Kit 1 – Natal Clássico',d:'Pelúcia, enfeites de Natal e caneca',img:PRIZE_IMAGES[0]},{n:'Kit 2 – Natal Gelado',d:'Balde, copo e acessórios para bebidas',img:PRIZE_IMAGES[1]},{n:'Kit 3 – Natal Decorativo',d:'Globo de neve, enfeites e decoração',img:PRIZE_IMAGES[2]},{n:'Kit 4 – Natal Aconchego',d:'Almofada, cobertor, pelúcia e caneca',img:PRIZE_IMAGES[3]}],
+fretes:FRETES_FIXOS.map(function(f){return Object.assign({},f)})};
+var S={prize:null,frete:CFG.fretes[0],id:null,paid:false,sent:0,code:'NATAL-'+Math.random().toString(36).slice(2,7).toUpperCase()};
+var ORD={},DB=null,ME=false,LEGACY_ME=false,orders=[];
+var supabaseClient=null,currentProfile=null,currentAuthUser=null;
+function bind(root){root.querySelectorAll('.slot').forEach(function(s){var f=s.querySelector('input');if(!f||s._b)return;s._b=1;f.onchange=function(){var r=new FileReader();r.onload=function(){s.style.backgroundImage='url('+r.result+')';s.classList.add('has')};if(f.files[0])r.readAsDataURL(f.files[0])}})}
+bind(document);
+function renderCfg(){
+$('prizes').innerHTML=CFG.prizes.map(function(p,i){return '<div class="card"><div class="prize-banner"><img src="'+esc(p.img||PRIZE_IMAGES[i]||'')+'" alt="'+esc(p.n)+'"></div><h3>'+esc(p.n)+'</h3><p>'+esc(p.d)+'</p><button class="btn sm" data-i="'+i+'">QUERO ESTE</button></div>'}).join('');
+$('fretes').innerHTML=CFG.fretes.map(function(f,i){return '<label class="opt"><span><input type="radio" name="fr" value="'+i+'"'+(i?'':' checked')+'> Entrega em '+f.d+' dias</span><span>'+BRL(f.v)+'</span></label>'}).join('');
+S.frete=CFG.fretes[0];
+$('cnt').innerHTML='<b>'+S.sent+' de '+CFG.meta+'</b> divulgações';
+$('ten').innerHTML=Array.from({length:CFG.meta},function(_,i){return '<button data-i="'+i+'">Enviar para pessoa '+(i+1)+'</button>'}).join('');
+document.querySelectorAll('.steps4 div')[1].innerHTML='<b>2</b>Divulgue seu cupom para '+CFG.meta+' pessoas.';
+upd()}
+$('prizes').onclick=function(e){var b=e.target.closest('button');if(!b)return;S.prize=CFG.prizes[b.dataset.i];location.hash='divulgar'};
+$('fretes').onchange=function(e){S.frete=CFG.fretes[e.target.value]};
+// persistência (precisa do banco; sem ele, roda só no navegador)
+function save(){if(!DB||!S.id)return;try{DB.collection('pedidos').doc(S.id).set(ORD).catch(function(){})}catch(e){}}
+$('cep').addEventListener('input',function(){var n=this.value.replace(/\D/g,'').slice(0,8);this.value=n.length>5?n.slice(0,5)+'-'+n.slice(5):n});
+$('estado').addEventListener('input',function(){this.value=this.value.replace(/[^a-z]/gi,'').slice(0,2).toUpperCase()});
+$('gerar').onclick=function(){
+var required=['nome','zap','cep','estado','rua','numero','bairro','cidade'];
+if(required.some(function(id){return !$(id).value.trim()})){alert('Preencha todos os dados obrigatórios.');return}
+var cep=$('cep').value.replace(/\D/g,'');
+if(cep.length!==8){alert('Informe um CEP válido com 8 números.');$('cep').focus();return}
+S.id=S.id||'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+var endereco={rua:$('rua').value.trim(),numero:$('numero').value.trim(),complemento:$('complemento').value.trim(),bairro:$('bairro').value.trim(),cidade:$('cidade').value.trim(),estado:$('estado').value.trim().toUpperCase(),referencia:$('referencia').value.trim()};
+var partes=[endereco.rua+', '+endereco.numero,endereco.complemento,endereco.bairro,endereco.cidade+' - '+endereco.estado,'CEP '+cep.replace(/^(\d{5})(\d{3})$/,'$1-$2')];
+if(endereco.referencia)partes.push('Referência: '+endereco.referencia);
+ORD={nome:$('nome').value.trim(),zap:$('zap').value.trim(),cep:cep.replace(/^(\d{5})(\d{3})$/,'$1-$2'),end:partes.join(', '),rua:endereco.rua,numero:endereco.numero,complemento:endereco.complemento,bairro:endereco.bairro,cidade:endereco.cidade,estado:endereco.estado,referencia:endereco.referencia,premio:S.prize.n,frete:S.frete.v,prazo:S.frete.d,cupom:S.code,divulgacoes:0,status:'aguardando pagamento',criado:Date.now()};
+save();$('pix').hidden=false};
+$('pago').onclick=function(){if(S.sent<CFG.meta)return;S.paid=true;ORD.status='liberado';save();location.hash='final'};
+$('ten').onclick=function(e){var b=e.target.closest('button');if(!b||b.classList.contains('done'))return;
+var t='Ganhei um presente de Natal na Coca-Cola! Use meu cupom '+S.code+' e participe também: '+location.href.split('#')[0];
+window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank');b.classList.add('done');b.textContent='Enviado ✓';S.sent++;ORD.divulgacoes=S.sent;save();upd()};
+function upd(){$('bar').style.width=Math.min(100,S.sent*100/CFG.meta)+'%';$('cnt').innerHTML='<b>'+S.sent+' de '+CFG.meta+'</b> divulgações';$('libera').disabled=S.sent<CFG.meta}
+$('libera').onclick=function(){if(S.sent>=CFG.meta)location.hash='pagamento'};
+// admin
+function renderAdmin(){if(!ME)return;
+var pagos=orders.filter(function(o){return o.status!='aguardando pagamento'});
+var liberados=orders.filter(function(o){return o.status=='liberado'||o.status=='enviado'}).length;
+$('stats').innerHTML=[['Participantes',orders.length],['Pagamentos',pagos.length],['Liberados',liberados],['Frete arrecadado',BRL(pagos.reduce(function(a,o){return a+(+o.frete||0)},0))]].map(function(x){return '<div><b>'+x[1]+'</b>'+x[0]+'</div>'}).join('');
+var st=['aguardando pagamento','pago','liberado','enviado','cancelado'];
+var term=$('admin-search').value.trim().toLowerCase();
+var status=$('admin-status').value;
+var filtered=orders.filter(function(o){
+ var text=[o.nome,o.zap,o.cupom,o.premio].join(' ').toLowerCase();
+ return (!term||text.indexOf(term)!==-1)&&(!status||o.status==status)
+}).slice().sort(function(a,b){return b.criado-a.criado});
+$('table-count').textContent=filtered.length+' de '+orders.length+' pedidos';
+$('rows').innerHTML=filtered.map(function(o){return '<tr><td data-label="Data">'+new Date(o.criado).toLocaleDateString('pt-BR')+'</td><td data-label="Nome">'+esc(o.nome)+'</td><td data-label="WhatsApp">'+esc(o.zap)+'</td><td data-label="Prêmio">'+esc(o.premio)+'</td><td data-label="Frete">'+BRL(o.frete)+'</td><td data-label="Cupom">'+esc(o.cupom)+'</td><td data-label="Divulgações">'+(o.divulgacoes||0)+'</td><td data-label="Status"><select data-id="'+esc(o.id)+'">'+st.map(function(s){return '<option'+(s==o.status?' selected':'')+'>'+s+'</option>'}).join('')+'</select></td><td data-label="Ações"><button class="xs" data-del="'+esc(o.id)+'">EXCLUIR</button></td></tr>'}).join('')||'<tr><td class="admin-empty" colspan="9">'+(orders.length?'Nenhum pedido corresponde à busca.':'Nenhum participante ainda.')+'</td></tr>'}
+$('admin-search').addEventListener('input',renderAdmin);
+$('admin-status').addEventListener('change',renderAdmin);
+function renderUsers(rows){
+var owner=currentProfile&&currentProfile.role==='owner';
+$('user-count').textContent=rows.length+' contas cadastradas';
+$('user-rows').innerHTML=rows.map(function(u){
+var action='';
+if(owner&&u.role!=='owner'&&u.id!==currentAuthUser.id){
+action=u.role==='admin'
+?'<button class="xs" data-user-id="'+esc(u.id)+'" data-make-admin="false">REMOVER ADMIN</button>'
+:'<button class="xs" data-user-id="'+esc(u.id)+'" data-make-admin="true">TORNAR ADMIN</button>';
+}
+return '<tr><td data-label="Nome">'+esc(u.full_name)+'</td><td data-label="E-mail">'+esc(u.email)+'</td><td data-label="Telefone">'+esc(u.phone)+'</td><td data-label="Cadastro">'+new Date(u.created_at).toLocaleDateString('pt-BR')+'</td><td data-label="Permissão"><span class="role-pill">'+esc(u.role)+'</span></td><td data-label="Ações">'+action+'</td></tr>';
+}).join('')||'<tr><td colspan="6">Nenhuma conta cadastrada.</td></tr>';
+}
+async function loadUsers(){
+if(!supabaseClient||!ME){$('user-count').textContent='Acesso restrito a administradores.';return}
+if(!currentProfile||!['owner','admin'].includes(currentProfile.role)){return}
+$('user-count').textContent='Carregando contas...';
+var result=await supabaseClient.from('profiles').select('id,email,full_name,phone,role,created_at').order('created_at',{ascending:false});
+if(result.error){$('user-count').textContent='Não foi possível carregar as contas.';$('user-info').textContent=result.error.message;return}
+$('user-info').textContent=currentProfile.role==='owner'
+?'Somente a conta proprietária pode promover ou remover administradores.'
+:'Você pode consultar os perfis para suporte; somente a proprietária gerencia administradores.';
+renderUsers(result.data||[]);
+}
+$('user-rows').addEventListener('click',async function(e){
+var button=e.target.closest('button[data-user-id]');
+if(!button||!currentProfile||currentProfile.role!=='owner'||!supabaseClient)return;
+var promote=button.dataset.makeAdmin==='true';
+if(!confirm((promote?'Promover esta conta a administradora?':'Remover o acesso administrativo desta conta?')))return;
+button.disabled=true;
+var result=await supabaseClient.rpc('owner_set_admin',{target_user_id:button.dataset.userId,make_admin:promote});
+if(result.error){$('user-info').textContent='Não foi possível atualizar a permissão: '+result.error.message;button.disabled=false;return}
+$('user-info').textContent='Permissão atualizada.';
+await loadUsers();
+});
+$('rows').onchange=function(e){var id=e.target.dataset.id;if(id&&DB)DB.collection('pedidos').doc(id).update({status:e.target.value}).catch(function(){})};
+$('rows').onclick=function(e){var id=e.target.dataset.del;if(id&&DB&&confirm('Excluir este participante?'))DB.collection('pedidos').doc(id).delete().catch(function(){})};
+$('c-save').onclick=function(){var pr=$('c-prizes').value.split('\n').filter(Boolean).map(function(l,i){var a=l.split('|');return{n:a[0].trim(),d:(a[1]||'').trim(),img:PRIZE_IMAGES[i]||''}});
+if(!pr.length){alert('Informe ao menos um prêmio.');return}
+var c={ativa:$('c-ativa').checked,meta:Math.max(1,parseInt($('c-meta').value,10)||10),prizes:pr,fretes:FRETES_FIXOS.map(function(f){return Object.assign({},f)})};
+if(DB)DB.collection('config').doc('main').set(c).then(function(){alert('Configurações salvas.')}).catch(function(){alert('Não foi possível salvar.')});else{apply(c)}};
+$('csv').onclick=async function(){try{var d=await claude.use('downloads');if(!d)return;var q=function(s){return '"'+String(s==null?'':s).replace(/"/g,'""')+'"'};
+var csv='data;nome;whatsapp;cep;rua;numero;complemento;bairro;cidade;estado;referencia;endereco;premio;frete;prazo;cupom;divulgacoes;status\n'+orders.map(function(o){return [new Date(o.criado).toLocaleString('pt-BR'),o.nome,o.zap,o.cep,o.rua,o.numero,o.complemento,o.bairro,o.cidade,o.estado,o.referencia,o.end,o.premio,o.frete,o.prazo,o.cupom,o.divulgacoes,o.status].map(q).join(';')}).join('\n');
+await d.save({filename:'participantes.csv',data:'\ufeff'+csv})}catch(e){}};
+function fillForm(){$('c-ativa').checked=CFG.ativa;$('c-meta').value=CFG.meta;$('c-prizes').value=CFG.prizes.map(function(p){return p.n+' | '+p.d}).join('\n');$('c-fretes').value=FRETES_FIXOS.map(function(f){return f.v.toFixed(2).replace('.',',')+' | '+f.d}).join('\n')}
+function apply(c){CFG=Object.assign(CFG,c);CFG.fretes=FRETES_FIXOS.map(function(f){return Object.assign({},f)});renderCfg();fillForm();go()}
+renderCfg();fillForm();
+function showAuthMessage(id,message,isError){
+var el=$(id);el.textContent=message;el.hidden=false;
+el.style.borderColor=isError?'#b00020':'#d7e9d8';
+el.style.background=isError?'#fff0f2':'#f0fff2';
+}
+async function updateAuthState(session){
+currentAuthUser=session&&session.user||null;
+currentProfile=null;
+if(currentAuthUser&&supabaseClient){
+var result=await supabaseClient.from('profiles').select('id,email,full_name,phone,role,created_at').eq('id',currentAuthUser.id).maybeSingle();
+if(result.error){
+showAuthMessage('login-notice','Não foi possível carregar o perfil. Confirme se supabase-schema.sql foi aplicado. '+result.error.message,true);
+}else currentProfile=result.data;
+}
+ME=LEGACY_ME||!!(currentProfile&&['owner','admin'].includes(currentProfile.role));
+$('admlink').hidden=!ME;
+$('account-bar').hidden=!currentAuthUser;
+$('account-name').textContent=currentProfile&&currentProfile.full_name||currentAuthUser&&currentAuthUser.email||'';
+$('adlock').hidden=ME;
+$('adbody').hidden=!ME;
+if(ME){renderAdmin();await loadUsers()}
+go();
+}
+function initSupabaseAuth(){
+var config=window.SUPABASE_CONFIG;
+if(!window.supabase||!config||!config.url||!config.anonKey){
+$('auth-config-note').textContent='O login fica indisponível até configurar a Project URL e a publishable/anon key em supabase-config.js. Nunca use a service_role key no navegador.';
+$('signup-config-note').textContent='O cadastro fica indisponível até configurar o Supabase. Nome, e-mail e telefone serão armazenados no perfil; endereço é informado separadamente no checkout.';
+return;
+}
+var privacy;
+try{privacy=new URL(config.privacyUrl||'')}catch(e){privacy=null}
+if(privacy&&privacy.protocol==='https:'){
+$('privacy-link').href=privacy.href;
+$('privacy-link').hidden=false;
+$('signup-submit').disabled=false;
+}else{
+$('signup-config-note').textContent='Para habilitar o cadastro, publique um aviso de privacidade completo em HTTPS e informe o endereço em privacyUrl no arquivo supabase-config.js.';
+}
+try{supabaseClient=window.supabase.createClient(config.url,config.anonKey)}
+catch(e){showAuthMessage('login-notice','Configuração do Supabase inválida. Revise a URL e a publishable/anon key.',true);return}
+supabaseClient.auth.getSession().then(function(result){
+if(result.error){showAuthMessage('login-notice','Não foi possível verificar a sessão: '+result.error.message,true);return}
+updateAuthState(result.data.session);
+}).catch(function(e){showAuthMessage('login-notice','Falha ao conectar com Supabase: '+e.message,true)});
+supabaseClient.auth.onAuthStateChange(function(event,session){
+setTimeout(function(){updateAuthState(session)},0);
+});
+}
+$('login-form').addEventListener('submit',async function(e){
+e.preventDefault();
+var email=$('login-email').value.trim(),password=$('login-password').value;
+if(!supabaseClient){$('login-password').value='';showAuthMessage('login-notice','Login ainda não configurado. Preencha supabase-config.js com a URL e a publishable/anon key do projeto.',true);return}
+$('login-notice').hidden=true;
+var result=await supabaseClient.auth.signInWithPassword({email:email,password:password});
+$('login-password').value='';
+if(result.error){showAuthMessage('login-notice','Não foi possível entrar: '+result.error.message,true);return}
+await updateAuthState(result.data.session);
+location.hash=ME?'admin':'inicio';
+});
+$('signup-form').addEventListener('submit',async function(e){
+e.preventDefault();
+var pass=$('signup-password'),confirmPass=$('signup-confirm'),notice=$('signup-notice');
+if(pass.value!==confirmPass.value){showAuthMessage('signup-notice','As senhas não coincidem.',true);confirmPass.focus();return}
+if(!$('signup-consent').checked){showAuthMessage('signup-notice','Leia e aceite o aviso sobre o uso dos dados para continuar.',true);return}
+if(!supabaseClient){pass.value='';confirmPass.value='';showAuthMessage('signup-notice','Cadastro ainda não configurado. Preencha supabase-config.js com a URL e a publishable/anon key do projeto.',true);return}
+if(!$('privacy-link').href||$('privacy-link').hidden){pass.value='';confirmPass.value='';showAuthMessage('signup-notice','O cadastro só será habilitado após publicar e configurar o aviso de privacidade completo.',true);return}
+var name=$('signup-name').value.trim(),email=$('signup-email').value.trim(),phone=$('signup-phone').value.trim();
+var phoneDigits=phone.replace(/\D/g,'');
+if(phoneDigits.length<10||phoneDigits.length>13){showAuthMessage('signup-notice','Informe um telefone com DDD válido.',true);return}
+var password=pass.value;
+pass.value='';confirmPass.value='';
+notice.hidden=true;
+var result=await supabaseClient.auth.signUp({
+email:email,
+password:password,
+options:{data:{full_name:name,phone:phone},emailRedirectTo:location.origin+location.pathname}
+});
+password='';
+if(result.error){showAuthMessage('signup-notice','Não foi possível criar a conta: '+result.error.message,true);return}
+showAuthMessage('signup-notice',result.data.session
+?'Conta criada. Você já pode entrar.'
+:'Cadastro iniciado. Confirme seu e-mail antes de entrar.',false);
+if(result.data.session)await updateAuthState(result.data.session);
+});
+$('logout').addEventListener('click',async function(){
+if(!supabaseClient)return;
+var result=await supabaseClient.auth.signOut();
+if(result.error){showAuthMessage('login-notice','Não foi possível sair: '+result.error.message,true);return}
+currentProfile=null;currentAuthUser=null;ME=LEGACY_ME;
+location.hash='inicio';
+await updateAuthState(null);
+});
+initSupabaseAuth();
+// rotas (só #nome)
+var V=['inicio','premios','pagamento','divulgar','final','admin','conta','cadastro'];
+function go(){var h=location.hash.slice(1);if(V.indexOf(h)<0)h='inicio';
+if(h!='admin'&&h!='inicio'&&!CFG.ativa)h='inicio';
+if((h=='pagamento'||h=='divulgar'||h=='final')&&!S.prize)h='premios';
+if(h=='pagamento'&&S.sent<CFG.meta)h='divulgar';
+if(h=='pagamento'&&S.paid)h='final';
+if(h=='divulgar'&&S.sent>=CFG.meta)h='pagamento';
+if(h=='final'&&S.sent<CFG.meta)h='divulgar';
+if(h=='final'&&S.sent>=CFG.meta&&!S.paid)h='pagamento';
+V.forEach(function(v){$('v-'+v).classList.toggle('on',v==h)});
+document.querySelectorAll('.steps span').forEach(function(s){s.classList.toggle('on',s.dataset.s==h)});
+$('aviso').style.display=CFG.ativa||h=='admin'?'none':'block';
+$('adlock').hidden=ME;$('adbody').hidden=!ME;
+if(S.prize)$('pz').textContent='Seu presente: '+S.prize.n;
+$('coupon').textContent=$('coupon2').textContent=S.code;
+$('fim').textContent='Seu '+(S.prize?S.prize.n:'presente')+' será enviado com entrega em '+S.frete.d+' dias.';
+scrollTo(0,0)}
+addEventListener('hashchange',go);go();
+// banco e perfil (se disponíveis)
+ (async function(){try{if(!window.claude)return;DB=await claude.use('db');var U=await claude.use('user');LEGACY_ME=U?await U.isOwner():false;ME=LEGACY_ME||!!(currentProfile&&['owner','admin'].includes(currentProfile.role));
+$('admlink').hidden=!ME;
+if(DB){DB.collection('config').doc('main').onSnapshot(function(s){if(s.exists)apply(s.data())},function(){});
+if(ME){DB.collection('pedidos').onSnapshot(function(s){orders=s.docs.map(function(d){return Object.assign({id:d.id},d.data())});renderAdmin()},function(){});}}
+else if(ME)$('adinfo').textContent='Banco de dados indisponível: pedidos não estão sendo gravados.';
+go()}catch(e){}})();
+// Camada visual imersiva
+(function(){
+ var progress=document.createElement('div');
+ progress.className='scroll-progress';
+ document.body.appendChild(progress);
+ function updateProgress(){
+  var top=scrollY||0;
+  var max=document.documentElement.scrollHeight-innerHeight;
+  progress.style.width=(max>0?Math.min(100,top/max*100):0)+'%';
+ }
+ addEventListener('scroll',updateProgress,{passive:true});
+ updateProgress();
+
+ if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  var mx=50,my=20;
+  addEventListener('pointermove',function(e){
+   mx=e.clientX/innerWidth*100;
+   my=e.clientY/innerHeight*100;
+   document.documentElement.style.setProperty('--mx',mx+'%');
+   document.documentElement.style.setProperty('--my',my+'%');
+   if(location.hash==='#'||location.hash===''||location.hash==='#inicio'){
+    var tx=(e.clientX/innerWidth-.5)*8;
+    var ty=(e.clientY/innerHeight-.5)*5;
+    var seal=document.querySelector('.brand-seal');
+    var bottle=document.querySelector('.coca-bottle');
+    if(seal)seal.style.transform='rotate(7deg) translate('+tx*.5+'px,'+ty*.5+'px)';
+    if(bottle)bottle.style.transform='rotate(-8deg) translate('+tx*.25+'px,'+ty*.25+'px)';
+   }
+  },{passive:true});
+
+  var observer=new IntersectionObserver(function(entries){
+   entries.forEach(function(entry){
+    if(entry.isIntersecting){
+     entry.target.classList.add('visible');
+     observer.unobserve(entry.target);
+    }
+   });
+  },{threshold:.12,rootMargin:'0px 0px -4% 0px'});
+  function observeReveals(){
+   document.querySelectorAll('.card,.box,.coca-banner,.trust div,.faq details,.steps4 div').forEach(function(el){
+    if(!el.classList.contains('reveal-soft')){
+     el.classList.add('reveal-soft');
+     observer.observe(el);
+    }
+   });
+  }
+  observeReveals();
+  setInterval(observeReveals,800);
+
+  if(innerWidth>760){
+   document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+     var r=card.getBoundingClientRect();
+     var px=(e.clientX-r.left)/r.width-.5;
+     var py=(e.clientY-r.top)/r.height-.5;
+     card.style.transform='translateY(-8px) perspective(800px) rotateX('+(-py*3)+'deg) rotateY('+px*3+'deg)';
+    });
+    card.addEventListener('mouseleave',function(){card.style.transform=''});
+   });
+  }
+ }
+})();
+// neve
+(function(){var c=$('snow'),x=c.getContext('2d'),w,h,f=[];
+function size(){var d=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0)}
+size();addEventListener('resize',size);
+for(var i=0;i<(innerWidth<600?55:100);i++)f.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*3+1,s:Math.random()+.4,p:Math.random()*6});
+function draw(){x.clearRect(0,0,w,h);x.fillStyle='#fff';f.forEach(function(o){o.y+=o.s;o.p+=.02;o.x+=Math.sin(o.p)*.5;if(o.y>h+5){o.y=-5;o.x=Math.random()*w}x.globalAlpha=.4+o.r/5;x.beginPath();x.arc(o.x,o.y,o.r,0,6.283);x.fill()})}
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){draw();return}
+(function l(){draw();requestAnimationFrame(l)})()})();
+</script>
+</body>
+</html>
